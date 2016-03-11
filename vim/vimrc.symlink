@@ -56,3 +56,8 @@ nnoremap <c-t>l <Esc>:tabnext<CR>
 " Tab split
 nnoremap <c-t>% <Esc>:vsplit<CR>
 nnoremap <c-t>" <Esc>:split<CR>
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
