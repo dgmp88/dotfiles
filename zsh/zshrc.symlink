@@ -13,10 +13,21 @@ zstyle :omz:plugins:ssh-agent identities id_rsa
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
-rps=~/dev/digit/random-public-site/randomsite
 
-tmux attach || tmux new
+
+dev=~/dev
+ddev=~/dev/digit
+data=~/data
+rps=~/dev/random-public-site/randomsite
+vdir=~/dev/environment/
+
+
+alias v=~/vagrant_start.sh
+
+#tmux attach || tmux new
+
+export NVM_DIR="/home/vagrant/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
