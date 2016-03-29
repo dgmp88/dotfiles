@@ -13,21 +13,33 @@ zstyle :omz:plugins:ssh-agent identities id_rsa
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 source $ZSH/oh-my-zsh.sh
 
-
-
+# General stuff
 dev=~/dev
-ddev=~/dev/digit
 data=~/data
-rps=~/dev/random-public-site/randomsite
+
+# Visii
+vdev=~/dev/visii
+rps=~/dev/visii/random-public-site/randomsite
+
+# Vagrant
 vdir=~/dev/environment/
+research=~/dev/visii/research
+alias vstart=~/vagrant_start.sh
+alias vssh=~/vagrant_ssh.sh
+alias jpy='jupyter notebook --ip=0.0.0.0 --no-browser'
 
-
-alias v=~/vagrant_start.sh
+# Apps
+apps=~/dev/apps
+lunee=~/dev/apps/lunee
+luneedev=~/dev/apps/lunee/core/src/com/boondog/lunee
+chording=~/dev/apps/chordingapp
 
 #tmux attach || tmux new
 
 export NVM_DIR="/home/vagrant/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+. /home/vagrant/torch/install/bin/torch-activate
