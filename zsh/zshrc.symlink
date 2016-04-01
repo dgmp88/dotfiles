@@ -22,10 +22,11 @@ data=~/data
 # Visii
 vdev=~/dev/visii
 rps=~/dev/visii/random-public-site/randomsite
+website=~/dev/visii/website/main
+research=~/dev/visii/research
 
 # Vagrant
 vdir=~/dev/environment/
-research=~/dev/visii/research
 alias vstart=~/vagrant_start.sh
 alias vssh=~/vagrant_ssh.sh
 alias jpy='jupyter notebook --ip=0.0.0.0 --no-browser'
@@ -36,10 +37,17 @@ lunee=~/dev/apps/lunee
 luneedev=~/dev/apps/lunee/core/src/com/boondog/lunee
 chording=~/dev/apps/chordingapp
 
-#tmux attach || tmux new
+if [ "$USER" = "vagrant" ]
+then
+	echo "user is vagrant"
+	export NVM_DIR="/home/vagrant/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+	. /home/vagrant/torch/install/bin/torch-activate
+fi
 
-export NVM_DIR="/home/vagrant/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+if [ "$USER" = "george" ]
+then
+	echo "user is george"
+	tmux attach || tmux new
+fi
 
-
-. /home/vagrant/torch/install/bin/torch-activate
