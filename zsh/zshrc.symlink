@@ -22,20 +22,29 @@ data=~/data
 # Visii
 vdev=~/dev/visii
 rps=~/dev/visii/random-public-site/randomsite
+widget=~/dev/visii/widget-test-application
 website=~/dev/visii/website/main
 research=~/dev/visii/research
+datasets=~/dev/visii/research/datasets
+rpsana=~/dev/visii/data-analysis/random-public-site
 
 # Vagrant
 vdir=~/dev/environment/
-alias vstart=~/vagrant_start.sh
-alias vssh=~/vagrant_ssh.sh
+alias vstart=~/.dotfiles/script/vagrant_start.sh
+alias vssh=~/.dotfiles/script/vagrant_ssh.sh
 alias jpy='jupyter notebook --ip=0.0.0.0 --no-browser'
 
 # Apps
 apps=~/dev/apps
 lunee=~/dev/apps/lunee
-luneedev=~/dev/apps/lunee/core/src/com/boondog/lunee
+wargame=~/dev/apps/wargame
 chording=~/dev/apps/chordingapp
+
+# Rasberry pi
+alias pissh="ssh pi@192.168.1.5"
+
+# Start docker on mac 
+alias dmac=~/.dotfiles/script/start_docker_mac.sh
 
 if [ "$USER" = "vagrant" ]
 then
