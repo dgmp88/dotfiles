@@ -68,3 +68,6 @@ set whichwrap+=h,l
 set cursorline
 set number
 
+command Pyrun execute "!python %"
+command Wsp execute "%s/\\s\\+$"
+
