@@ -14,6 +14,13 @@ zstyle :omz:plugins:ssh-agent identities id_rsa
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 
+# Shortcuts
+bindkey -e
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word
+#bindkey '\e\e[C' forward-word;
+#bindkey '\e\e[D' backward-word
+
 # General stuff
 dev=~/dev
 data=~/data
@@ -25,7 +32,7 @@ widget=~/dev/visii/widget-test-application
 website=~/dev/visii/website/main
 research=~/dev/visii/research
 datasets=~/dev/visii/research/datasets
-rpsana=~/dev/visii/data-analysis/random-public-site
+rpsana=~/dev/visii/data-analysis/rps
 
 # Vagrant
 vdir=~/dev/environment/
@@ -42,7 +49,7 @@ chording=~/dev/apps/chordingapp
 # Rasberry pi
 alias pissh="ssh pi@192.168.1.5"
 
-# Start docker on mac 
+# Start docker on mac
 alias dmac=~/.dotfiles/script/start_docker_mac.sh
 
 # Misccellanious Dev
@@ -54,14 +61,23 @@ alias json="python -mjson.tool"
 if [ "$USER" = "vagrant" ]
 then
 	echo "user is vagrant"
+
+	# Dependencies
 	export NVM_DIR="/home/vagrant/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+	export PATH=$PATH:/usr/local/go/bin
+	export GOPATH=$HOME/go
+	export PYTHONPATH=$PYTHONPATH:/home/vagrant/dev/visii/research/datasets
+
+
 	. /home/vagrant/torch/install/bin/torch-activate
 	tmux attach || tmux new
 fi
 
 if [ "$USER" = "george" ]
 then
+	export PATH=$PATH:$HOME/.webdriver
 	echo "user is george"
 fi
 
