@@ -25,12 +25,17 @@ Plugin 'git://git.wincent.com/command-t.git'
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'tpope/vim-markdown'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'othree/html5.vim'
 Plugin 'tpope/vim-sleuth'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'fatih/vim-go'
+Plugin 'scrooloose/nerdcommenter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -47,8 +52,20 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-imap ;; <Esc>
+imap qq <Esc>
 
+" CtrlP settings:
+" ignore these files
+"let g:ctrlp_custom_ignore = {
+" \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+"" \ 'file': '\v\.(h5|csv|tgz|bak|jpg|jpeg|pyc)$',
+"" \ 'link': '',
+"" \ }
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.git/*,*.h5,*.tgz,*.csv,*.bak,*.jpg,*.jpeg,*.pyc
+
+
+" Cache the results of ctrlp
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 
 " Tab
 nnoremap <c-t>n <Esc>:tabnew<CR>
