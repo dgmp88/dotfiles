@@ -1,4 +1,7 @@
 "*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "526f8194-47fc-4ddf-b74b-3fc111b69843"
   core:
     disabledPackages: [
       "background-tips"
@@ -16,6 +19,7 @@
       "tmp"
       "vendor"
     ]
+    telemetryConsent: "limited"
     themes: [
       "unity-ui"
       "glacier-syntax"
