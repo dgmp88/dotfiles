@@ -53,10 +53,10 @@ alias pissh="ssh pi@192.168.1.5"
 alias dmac=~/.dotfiles/script/start_docker_mac.sh
 
 # Misccellanious Dev
-
-
 alias json="python -mjson.tool"
 
+# Imports
+export PYTHONPATH=$PYTHONPATH:$HOME/dev/visii/research/datasets
 
 if [ "$USER" = "vagrant" ]
 then
@@ -68,7 +68,6 @@ then
 
 	export PATH=$PATH:/usr/local/go/bin
 	export GOPATH=$HOME/go
-	export PYTHONPATH=$PYTHONPATH:/home/vagrant/dev/visii/research/datasets
 
 
 	. /home/vagrant/torch/install/bin/torch-activate
