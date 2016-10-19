@@ -62,7 +62,7 @@ imap qq <Esc>
 "" \ 'link': '',
 "" \ }
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.git/*,*.h5,*.tgz,*.csv,*.bak,*.jpg,*.jpeg,*.pyc
-
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " Cache the results of ctrlp
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
