@@ -1,44 +1,19 @@
 "*":
   "atom-beautify":
     general:
-      _analyticsUserId: "526f8194-47fc-4ddf-b74b-3fc111b69843"
+      _analyticsUserId: "bf809cc7-925f-4f6a-b492-90a60a8b4c15"
   core:
     disabledPackages: [
-      "background-tips"
-      "exception-reporting"
-      "metrics"
       "language-gfm"
-    ]
-    followSymlinks: false
-    hideGitIgnoredFiles: true
-    ignoredNames: [
-      ".bundle"
-      ".git"
-      "log"
-      "repositories"
-      "tmp"
-      "vendor"
+      "linter-pep8"
     ]
     telemetryConsent: "limited"
-    themes: [
-      "unity-ui"
-      "glacier-syntax"
-    ]
-  editor:
-    fontFamily: "Menlo"
-    invisibles: {}
-    showIndentGuide: true
-    softWrapAtPreferredLineLength: true
-  "go-plus":
-    goPath: "/Users/holman/Code/go"
-  "release-notes":
-    viewedVersion: "0.89.0"
-  "spell-check":
-    grammars: [
-      "text.plain"
-      "source.gfm"
-      "text.git-commit"
-      "text.html.basic"
-    ]
+  "exception-reporting":
+    userId: "2ff83acb-d660-c289-39a8-f8500d36a6a6"
+  runner:
+    extensions:
+      py: "/usr/local/bin/python3"
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false

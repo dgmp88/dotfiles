@@ -7,3 +7,8 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
+# Make sure new windows open in the current panes path
+# http://unix.stackexchange.com/questions/12032/create-new-window-with-current-directory-in-tmux
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
