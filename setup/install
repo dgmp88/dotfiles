@@ -13,5 +13,14 @@ then
   brew bundle
 fi
 
+# Run Homebrew through the Brewfile
+if [ "$(uname -s)" == "Linux" ]
+then
+  echo "› apt install"
+  sudo apt-get install git zsh
+fi
+
+
+
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done

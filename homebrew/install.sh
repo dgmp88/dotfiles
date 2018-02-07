@@ -18,4 +18,9 @@ then
 
 fi
 
+brew install zsh
+brew install tmux
+brew install neovim
+brew install reattach-to-user-namespace
+
 exit 0
