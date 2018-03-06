@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euo pipefail
+
+AWS_PROFILE="${AWS_DEFAULT_PROFILE:-georgeprichard-dev}"
+exec aws-vault exec "$AWS_PROFILE" -- /usr/local/bin/aws "$@"

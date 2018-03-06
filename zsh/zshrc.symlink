@@ -54,7 +54,7 @@ alias vstart=~/.dotfiles/script/vagrant_start.sh
 alias dstart=~/.dotfiles/script/docker_start.sh
 alias vssh=~/.dotfiles/script/vagrant_ssh.sh
 alias gin=~/.dotfiles/script/gin.sh
-alias jpy='jupyter notebook --ip=0.0.0.0 --no-browser'
+alias jpy='jupyter-lab'
 
 # Apps
 apps=~/dev/apps
@@ -109,7 +109,7 @@ __git_files () {
 . /Users/george/torch/install/bin/torch-activate
 
 
-if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
+if ! { [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; } then
 	tmux attach || tmux new
 fi
 #zprof
@@ -121,5 +121,3 @@ alias loadnvm=". $NVM_DIR/nvm.sh"
 # Screw vim, use nvim
 alias vim=nvim
 
-# 
-export TERM=screen-256color

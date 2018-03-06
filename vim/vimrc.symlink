@@ -28,7 +28,7 @@ Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'rust-lang/rust.vim'
 Plugin 'zchee/deoplete-jedi'
-
+Plugin 'sbdchd/neoformat'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

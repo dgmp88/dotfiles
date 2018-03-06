@@ -1,0 +1,4 @@
+'.platform-darwin':
+  'cmd-p': 'command-palette:toggle'
+  'ctrl-p': 'fuzzy-finder:toggle-file-finder'
+  'cmd-t': 'unset!'
