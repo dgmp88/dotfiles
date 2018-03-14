@@ -17,7 +17,6 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 " Git plugin not hosted on GitHub
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'tpope/vim-markdown'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -29,6 +28,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'rust-lang/rust.vim'
 Plugin 'zchee/deoplete-jedi'
 Plugin 'sbdchd/neoformat'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -106,3 +106,8 @@ let g:hybrid_use_Xresources = 1
 set clipboard+=unnamedplus
 
 nnoremap <buffer> <c-g> :exec '!python3' shellescape(@%, 1)<cr>
+
+let g:ale_fixers = {
+\      'python': ['flake8', 'remove_trailing_lines', 'trim_whitespace']
+\      }
+
