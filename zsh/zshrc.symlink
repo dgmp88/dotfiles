@@ -1,7 +1,19 @@
 # Path to your oh-my-zsh installation.
 #zmodload zsh/zprof
 export ZSH=$HOME/.oh-my-zsh
+#export PATH=/Applications/anaconda3/bin:$PATH
+#. /Applications/anaconda3/etc/profile.d/conda.sh
 
+# Visii
+#export VISII_ENV_REPO=~/dev/visii/dev-environment/
+# aliases
+if [ -e "$VISII_ENV_REPO/.aliases" ]; then
+  source "$VISII_ENV_REPO/.aliases"
+fi
+
+# Screw vim, use nvim
+alias vim=nvim
+alias e=exit
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -27,15 +39,16 @@ export GOBIN="/usr/local/go/bin"
 bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
-#bindkey '\e\e[C' forward-word;
-#bindkey '\e\e[D' backward-word
 
 # General stuff
-dev=~/dev
+
+## Directory shortcuts
+# General
 data=~/data
+dev=~/dev
 personal=~/dev/personal
 
-# Visii
+# Wrok
 vdev=~/dev/visii
 rps=~/dev/visii/random-public-site/randomsite
 widget=~/dev/visii/widget-test-application
@@ -48,23 +61,14 @@ meeseeks=~/dev/visii/meeseeks
 platform=~/dev/visii/platform
 mum=~/dev/visii/platform/mum
 
-# Vagrant
-vdir=~/dev/environment/
-alias vstart=~/.dotfiles/script/vagrant_start.sh
-alias dstart=~/.dotfiles/script/docker_start.sh
-alias vssh=~/.dotfiles/script/vagrant_ssh.sh
-alias gin=~/.dotfiles/script/gin.sh
-alias jpy='jupyter-lab'
-
-# Apps
+# Projects
 apps=~/dev/apps
 lunee=~/dev/apps/lunee
 dinowar=~/dev/apps/wargame
 tappicle=~/dev/apps/tappicle
 chording=~/dev/apps/chordingapp
-
-# Web pages
 georgep=~/dev/websites/dgmp88.github.io
+crypto=~/dev/personal/cryptocurrency-project
 
 alias pissh="ssh pi@192.168.1.5"
 
@@ -88,6 +92,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Export my aws key to the environment
 export AWS_DEFAULT_REGION=eu-west-1
+export AWS_DEFAULT_PROFILE=georgeprichard-dev
 alias awsadmin="AWS_DEFAULT_PROFILE=aws-admin aws"
 function awsv() {
 	# AWS as georgeprichard-dev
@@ -114,10 +119,6 @@ if ! { [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; } then
 fi
 #zprof
 
-export NVM_DIR="$HOME/.nvm"
-alias loadnvm=". $NVM_DIR/nvm.sh"
+#export PATH=$VISII_ENV_REPO/bin:$PATH
 
-
-# Screw vim, use nvim
-alias vim=nvim
-
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
