@@ -5,43 +5,23 @@ filetype off
 set nocompatible              " be iMproved, required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.local/share/nvim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'Valloric/MatchTagAlways'
+Plug 'Valloric/YouCompleteMe'
+Plug 'tpope/vim-markdown'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'DavidEGx/ctrlp-smarttabs'
+Plug 'othree/html5.vim'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-fugitive'
+Plug 'fatih/vim-go'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'rust-lang/rust.vim'
+Plug 'w0rp/ale'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Git plugin not hosted on GitHub
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'tpope/vim-markdown'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'othree/html5.vim'
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-fugitive'
-Plugin 'fatih/vim-go'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'rust-lang/rust.vim'
-Plugin 'zchee/deoplete-jedi'
-Plugin 'sbdchd/neoformat'
-Plugin 'w0rp/ale'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-"
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
 
 imap qq <Esc>
 " Disable default q behaviour, it's annoying
@@ -65,7 +45,6 @@ let g:ycm_autoclose_preview_window_after_completion=1
 
 " Make YCM use python3 for python3 support
 let g:ycm_python_binary_path = 'python3'
-
 
 filetype plugin indent on
 " show existing tab with 4 spaces width
@@ -95,19 +74,32 @@ set whichwrap+=h,l
 set cursorline
 set number
 
-
-set cc=110
+let g:ctrlp_extensions = ['smarttabs']
 
 command Wsp execute "%s/\\s\\+$"
 
-let g:hybrid_use_Xresources = 1
+"let g:hybrid_use_Xresources = 1
 
 "let g:python_host_prog = '/Users/george/Library/Python/3.5/lib/python/site-packages/neovim'
 set clipboard+=unnamedplus
 
 nnoremap <buffer> <c-g> :exec '!python3' shellescape(@%, 1)<cr>
 
+set colorcolumn=120
+
+let b:ale_linters = ['flake8', 'pylint']
 let g:ale_fixers = {
-\      'python': ['flake8', 'remove_trailing_lines', 'trim_whitespace']
+\      'python': ['autopep8', 'isort', 'remove_trailing_lines', 'trim_whitespace']
 \      }
+
+let g:ale_python_flake8_args = '--max-line-length=120'
+let g:ale_python_autopep8_options = '--max-line-length=120'
+
+
+
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+
+" Nerdtree
+map <C-n> :NERDTreeToggle<CR>
 

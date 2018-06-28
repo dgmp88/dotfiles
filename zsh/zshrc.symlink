@@ -78,6 +78,8 @@ alias rmdockeri="docker images | grep 'none' | grep -v IMAGE | awk '{ print $3 }
 
 # Misccellanious Dev
 alias json="python -mjson.tool"
+alias jpy='jupyter-lab'
+alias gin=~/.dotfiles/script/gin.sh	
 
 # Imports
 export PYTHONPATH=$PYTHONPATH:$HOME/dev/pythonpath
