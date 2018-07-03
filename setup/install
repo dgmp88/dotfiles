@@ -6,21 +6,5 @@ set -e
 
 cd "$(dirname $0)"/..
 
-# Run Homebrew through the Brewfile
-if [ "$(uname -s)" == "Darwin" ]
-then
-  echo "› brew bundle"
-  brew bundle
-fi
-
-# Run Homebrew through the Brewfile
-if [ "$(uname -s)" == "Linux" ]
-then
-  echo "› apt install"
-  sudo apt-get install git zsh
-fi
-
-
-
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do echo "${installer}" ;  sh -c "${installer}" ; done
