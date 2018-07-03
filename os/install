@@ -1,0 +1,25 @@
+# Install os-specific stuff
+
+if test "$(uname)" = "Darwin"
+then
+	if test ! $(which brew)
+	then
+		echo "  Installing Homebrew for you."
+
+		# Install the correct homebrew for each OS type
+		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+	fi
+	echo "› sudo softwareupdate -i -a"
+	sudo softwareupdate -i -a
+	brew install zsh
+	brew install tmux
+	brew install neovim
+	brew install reattach-to-user-namespace
+elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
+then
+	sudo apt-get update
+	sudo apt-get install -y zsh wget git tmux
+fi
+
+
