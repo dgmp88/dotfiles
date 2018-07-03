@@ -7,6 +7,7 @@ then
 elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
 then
 	sudo apt-get update
+	sudo apt-get install zsh wget
 fi
 
 
