@@ -10,7 +10,8 @@
       "language-gfm"
     ]
     telemetryConsent: "limited"
-  editor: {}
+  editor:
+    softWrap: true
   "exception-reporting":
     userId: "2ff83acb-d660-c289-39a8-f8500d36a6a6"
   runner:
