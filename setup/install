@@ -11,3 +11,7 @@ sh -c "os/install"
 
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do echo "${installer}" ;  sh -c "${installer}" ; done
+
+sh -c "setup/bootstrap"
+
+zsh
