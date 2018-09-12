@@ -81,27 +81,9 @@ alias gin=~/.dotfiles/script/gin.sh
 # Imports
 export PYTHONPATH=$PYTHONPATH:$HOME/dev/pythonpath
 
-if [ "$USER" = "george" ]
-then
-	export PATH=$PATH:$HOME/.webdriver
-	echo "user is george"
-fi
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# Export my aws key to the environment
-export AWS_DEFAULT_REGION=eu-west-1
-export AWS_DEFAULT_PROFILE=georgeprichard-dev
-alias awsadmin="AWS_DEFAULT_PROFILE=aws-admin aws"
-function awsv() {
-	# AWS as georgeprichard-dev
-	aws-vault exec --debug georgeprichard-dev -- "$@"
-}
 
-function awsva() {
-	# AWS as admin
-	aws-vault exec --debug aws-admin -- "$@"
-}
 
 # Add gnubin to path so we have linux style cp etc
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$HOME/.dotfiles/overrides:$PATH"
@@ -109,8 +91,6 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$HOME/.dotfiles/overrides:$PATH"
 
 __git_files () {
 	_wanted files expl 'local files' _files  }
-
-
 
 if ! { [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; } then
 	tmux attach || tmux new
@@ -121,23 +101,41 @@ fi
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-if [ -f '/Users/george/' ];
+if [ -e '/Users/george/' ];
 then
+  echo "Setting up laptop prefs"
+
   . /Users/george/miniconda3/etc/profile.d/conda.sh
   conda activate
   
   . /Users/george/torch/install/bin/torch-activate
 
+  ### Gcloud stuff
   # The next line updates PATH for the Google Cloud SDK.
   source '/Users/george/google-cloud-sdk/path.zsh.inc'
-
-    # The next line enables shell command completion for gcloud.
+  # The next line enables shell command completion for gcloud.
   source '/Users/george/google-cloud-sdk/completion.zsh.inc'
+  alias gpu-start="gcloud compute instances start gpu-k80"
+  alias gpu-stop="gcloud compute instances stop gpu-k80"
+  alias gpu-ssh="gcloud compute ssh gpu-k80 -- -L localhost:8889:localhost:8888"
+
+
+  export PATH=$PATH:$HOME/.webdriver
+
+  # Export my aws key to the environment
+  export AWS_DEFAULT_REGION=eu-west-1
+  export AWS_DEFAULT_PROFILE=georgeprichard-dev
+  alias awsadmin="AWS_DEFAULT_PROFILE=aws-admin aws"
+  function awsv() {
+	  # AWS as georgeprichard-dev
+	  aws-vault exec --debug georgeprichard-dev -- "$@"
+  }
+
+  function awsva() {
+	  # AWS as admin
+	  aws-vault exec --debug aws-admin -- "$@"
+  }
+
 fi
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/george/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/george/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/george/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/george/google-cloud-sdk/completion.zsh.inc'; fi
