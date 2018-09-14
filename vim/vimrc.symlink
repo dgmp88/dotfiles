@@ -8,7 +8,7 @@ set nocompatible              " be iMproved, required
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Valloric/MatchTagAlways'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'tpope/vim-markdown'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'DavidEGx/ctrlp-smarttabs'
