@@ -131,12 +131,16 @@ then
   }
 fi
 
-
-if [ -e "$CONDA_PREFIX" ]
-then
-    echo "Anaconda found at $CONDA_PREFIX"
-    CMD=". $CONDA_PREFIX/etc/profile.d/conda.sh"
-    eval $CMD
-    alias c='conda'
-fi
+# Activate conda if we can find it
+for CONDA_VERSION in anaconda3 miniconda3; do
+    CONDA_SH="$HOME/$CONDA_VERSION/etc/profile.d/conda.sh"
+    if [ -e "$CONDA_SH" ]
+    then
+        echo "Anaconda found at $CONDA_SH"
+        CMD=". $CONDA_SH"
+        eval $CMD
+        alias c='conda'
+        alias ca='conda activate'
+    fi
+done
 
