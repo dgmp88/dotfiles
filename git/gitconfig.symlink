@@ -36,3 +36,6 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
+[user]
+	name = George Prichard
+	email = dgmprichard@gmail.com
