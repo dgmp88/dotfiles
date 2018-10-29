@@ -20,9 +20,17 @@ elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
 then
 	sudo apt-get update
     sudo apt-get install software-properties-common
-    sudo apt-add-repository -y ppa:neovim-ppa/stable
     sudo apt-get update
-    sudo apt-get install -y zsh wget git tmux neovim
+    sudo apt-get install -y zsh wget git tmux
+
+    # Install neovim
+    mkdir ~/apps
+    curl -Lo $HOME/apps/nvim.appimage https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+    chmod u+x ~/apps/nvim.appimage
+    pip install neovim --user
+    sudo ln -s $HOME/apps/nvim.appimage /usr/bin/nvim
+
+    # Change to zsh
     sudo chsh -s $(which zsh)
 fi
 
