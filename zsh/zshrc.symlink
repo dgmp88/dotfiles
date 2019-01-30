@@ -44,35 +44,24 @@ dev=~/dev
 personal=~/dev/personal
 
 # Wrok
-vdev=~/dev/visii
+visii=~/dev/visii
+opteo=~/dev/opteo
 rps=~/dev/visii/random-public-site/randomsite
 widget=~/dev/visii/widget-test-application
 explore=~/dev/visii/explore
-website=~/dev/visii/website/main
 research=~/dev/visii/research
 datasets=~/dev/visii/research/datasets
 cana=~/dev/visii/data-analysis/clients
 meeseeks=~/dev/visii/meeseeks
-platform=~/dev/visii/platform
-mum=~/dev/visii/platform/mum
 
 # Projects
 apps=~/dev/apps
-lunee=~/dev/apps/lunee
-dinowar=~/dev/apps/wargame
-tappicle=~/dev/apps/tappicle
-chording=~/dev/apps/chordingapp
-georgep=~/dev/websites/dgmp88.github.io
-crypto=~/dev/personal/cryptocurrency-project
-robo=~/dev/personal/robo
-
-alias pissh="ssh pi@192.168.1.5"
 
 # Docker on mac
 alias rmdockerc="docker ps -a | grep -v CONTAINER | awk '{ print \$1 }' | xargs docker rm -vf"
 alias rmdockeri="docker images | grep 'none' | grep -v IMAGE | awk '{ print $3 }' | xargs docker rmi"
 
-# Misccellanious Dev
+# Miscellanious Dev
 alias json=~/.dotfiles/script/json.sh
 alias jpy='jupyter-lab'
 alias gin=~/.dotfiles/script/gin.sh
@@ -92,13 +81,6 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$HOME/.dotfiles/overrides:$PATH"
 __git_files () {
 	_wanted files expl 'local files' _files  }
 
-if ! { [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; } then
-	tmux attach || tmux new
-fi
-#zprof
-
-#export PATH=$VISII_ENV_REPO/bin:$PATH
-
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 if [ -e '/Users/george/' ];
@@ -112,7 +94,7 @@ then
   source '/Users/george/google-cloud-sdk/completion.zsh.inc'
   alias gpu-start="gcloud compute instances start gpu-k80"
   alias gpu-stop="gcloud compute instances stop gpu-k80"
-  alias gpu-ssh="gcloud compute ssh gpu-k80 -- -L localhost:8889:localhost:8888"
+  alias gpu-ssh="gcloud compute ssh gpu-k80 -- -L localhost:8890:localhost:8888"
 
 
   export PATH=$PATH:$HOME/.webdriver
@@ -145,3 +127,6 @@ for CONDA_VERSION in anaconda3 miniconda3; do
     fi
 done
 
+export PATH=$PATH:/Users/george/Library/Android/sdk/platform-tools
+
+source "$HOME/.dotfiles/zsh/private"
