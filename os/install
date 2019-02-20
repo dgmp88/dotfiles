@@ -32,6 +32,9 @@ then
 
     # Change to zsh
     sudo chsh -s $(which zsh)
+
+    # Install YouCompleteMe deps
+    sudo apt-get install python3-dev cmake build-essential
 fi
 
 
