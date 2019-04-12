@@ -62,7 +62,7 @@ alias rmdockerc="docker ps -a | grep -v CONTAINER | awk '{ print \$1 }' | xargs 
 alias rmdockeri="docker images | grep 'none' | grep -v IMAGE | awk '{ print $3 }' | xargs docker rmi"
 
 # Miscellanious Dev
-alias json=~/.dotfiles/script/json.sh
+alias json=~/.dotfiles/script/json_parser.py
 alias jpy='jupyter-lab'
 alias gin=~/.dotfiles/script/gin.sh
 alias ls='ls -lah'
