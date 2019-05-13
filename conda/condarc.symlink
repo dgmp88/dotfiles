@@ -1,0 +1,6 @@
+channels:
+  - intel
+  - defaults
+ssl_verify: true
+channel_priority: disabled
+auto_activate_base: false
