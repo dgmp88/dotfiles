@@ -65,6 +65,7 @@ alias rmdockeri="docker images | grep 'none' | grep -v IMAGE | awk '{ print $3 }
 alias json=~/.dotfiles/script/json_parser.py
 alias jpy='jupyter-lab'
 alias gin=~/.dotfiles/script/gin.sh
+alias miniplotly=~/.dotfiles/script/miniplotly
 alias ls='ls -lah'
 
 # Imports
