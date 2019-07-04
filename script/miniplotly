@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import argparse
 import glob
-import sys
 
 cdn = '<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>'
 
@@ -40,8 +39,10 @@ def shrink_file(filename):
 
 
 if __name__ == "__main__":
-    finder = glob.glob(sys.argv[1])
+    finder = glob.glob("*.html")
+    print(finder)
 
     for filename in finder:
+        print(filename)
         print("Changing ", filename)
         shrink_file(filename)
