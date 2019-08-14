@@ -56,6 +56,7 @@ meeseeks=~/dev/visii/meeseeks
 
 # Projects
 apps=~/dev/apps
+lookdat=~/dev/lookdat
 
 # Docker on mac
 alias rmdockerc="docker ps -a | grep -v CONTAINER | awk '{ print \$1 }' | xargs docker rm -vf"
@@ -70,64 +71,23 @@ alias ls='ls -lah'
 
 # Imports
 export PYTHONPATH=$PYTHONPATH:$HOME/dev/pythonpath
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-
 
 # Add gnubin to path so we have linux style cp etc
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$HOME/.dotfiles/overrides:$PATH"
-
 
 __git_files () {
 	_wanted files expl 'local files' _files  }
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-if [ -e '/Users/george/' ];
-then
-  echo "Setting up laptop prefs"
-
-  ### Gcloud stuff
-  # The next line updates PATH for the Google Cloud SDK.
-  source '/Users/george/google-cloud-sdk/path.zsh.inc'
-  # The next line enables shell command completion for gcloud.
-  source '/Users/george/google-cloud-sdk/completion.zsh.inc'
-  alias gpu-start="gcloud compute instances start gpu-k80"
-  alias gpu-stop="gcloud compute instances stop gpu-k80"
-  alias gpu-ssh="gcloud compute ssh gpu-k80 -- -L localhost:8890:localhost:8888"
-
-
-  export PATH=$PATH:$HOME/.webdriver
-
-  # Export my aws key to the environment
-  export AWS_DEFAULT_REGION=eu-west-1
-  export AWS_DEFAULT_PROFILE=georgeprichard-dev
-  alias awsadmin="AWS_DEFAULT_PROFILE=aws-admin aws"
-  function awsv() {
-	  # AWS as georgeprichard-dev
-	  aws-vault exec --debug georgeprichard-dev -- "$@"
-  }
-
-  function awsva() {
-	  # AWS as admin
-	  aws-vault exec --debug aws-admin -- "$@"
-  }
-fi
-
-# Activate conda if we can find it
-for CONDA_VERSION in anaconda3 miniconda3; do
-    CONDA_SH="$HOME/$CONDA_VERSION/etc/profile.d/conda.sh"
-    if [ -e "$CONDA_SH" ]
-    then
-        echo "Anaconda found at $CONDA_SH"
-        CMD=". $CONDA_SH"
-        eval $CMD
-        alias c='conda'
-        alias ca='conda activate'
-    fi
-done
-
-export PATH=$PATH:/Users/george/Library/Android/sdk/platform-tools
-
 source "$HOME/.dotfiles/zsh/private"
+source "$HOME/.dotfiles/zsh/local"
+
+listening() {
+  if [ $# -eq 0 ]; then
+    lsof -iTCP -sTCP:LISTEN -n -P
+  elif [ $# -eq 1 ]; then
+    lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+  fi
+}

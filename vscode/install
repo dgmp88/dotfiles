@@ -1,0 +1,7 @@
+
+DOTFILES_ROOT=$(pwd -P)
+
+if test "$(uname)" = "Darwin"
+then
+    echo "SETUP VSCODE PROPERLY HERE"
+fi

@@ -1,0 +1,73 @@
+// Place your settings in this file to overwrite the default settings
+{
+      // Python settings
+      "python.pythonPath": "python3",
+      "python.envFile": ".env",
+      "python.linting.pep8Enabled": true,
+      "python.linting.pep8Args": ["--max-line-length=88"],
+      "python.formatting.provider": "black",
+      "terminal.integrated.commandsToSkipShell": [
+            "editor.action.toggleTabFocusMode",
+            "workbench.action.debug.continue",
+            "workbench.action.debug.restart",
+            "workbench.action.debug.run",
+            "workbench.action.debug.start",
+            "workbench.action.debug.stop",
+            "workbench.action.openNextRecentlyUsedEditorInGroup",
+            "workbench.action.openPreviousRecentlyUsedEditorInGroup",
+            "workbench.action.quickOpen",
+            "workbench.action.showCommands",
+            "workbench.action.terminal.clear",
+            "workbench.action.terminal.copySelection",
+            "workbench.action.terminal.focus",
+            "workbench.action.terminal.focusAtIndex1",
+            "workbench.action.terminal.focusAtIndex2",
+            "workbench.action.terminal.focusAtIndex3",
+            "workbench.action.terminal.focusAtIndex4",
+            "workbench.action.terminal.focusAtIndex5",
+            "workbench.action.terminal.focusAtIndex6",
+            "workbench.action.terminal.focusAtIndex7",
+            "workbench.action.terminal.focusAtIndex8",
+            "workbench.action.terminal.focusAtIndex9",
+            "workbench.action.terminal.focusNext",
+            "workbench.action.terminal.focusPrevious",
+            "workbench.action.terminal.kill",
+            "workbench.action.terminal.new",
+            "workbench.action.terminal.paste",
+            "workbench.action.terminal.runActiveFile",
+            "workbench.action.terminal.runSelectedText",
+            "workbench.action.terminal.scrollDown",
+            "workbench.action.terminal.scrollDownPage",
+            "workbench.action.terminal.scrollToBottom",
+            "workbench.action.terminal.scrollToTop",
+            "workbench.action.terminal.scrollUp",
+            "workbench.action.terminal.scrollUpPage",
+            "workbench.action.terminal.toggleTerminal",
+            "workbench.action.focusFirstEditorGroup"
+      ],
+      "window.zoomLevel": 1,
+      "workbench.colorTheme": "Solarized Light",
+      "editor.suggestSelection": "first",
+      "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+      "python.jediEnabled": false,
+      "files.exclude": {
+            "**/.classpath": true,
+            "**/.project": true,
+            "**/.settings": true,
+            "**/.factorypath": true
+      },
+      "editor.minimap.enabled": true,
+      "terminal.integrated.rendererType": "dom",
+      // "[html]": {
+      //       "editor.defaultFormatter": "HookyQR.beautify"
+      // },
+      "html.format.indentHandlebars": true,
+      "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+      },
+      "editor.formatOnSave": true,
+      "python.dataScience.sendSelectionToInteractiveWindow": true,
+      "[javascript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+}
