@@ -56,7 +56,7 @@ def beautify(html):
 
 
 if __name__ == "__main__":
-    finder = glob.glob("*.html")
+    finder = glob.glob("*.htm*")
     print(finder)
 
     for filename in finder:
