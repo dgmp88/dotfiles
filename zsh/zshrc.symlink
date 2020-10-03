@@ -56,7 +56,7 @@ meeseeks=~/dev/visii/meeseeks
 
 # Projects
 apps=~/dev/apps
-lookdat=~/dev/lookdat
+lookdat=~/dev/lookdat.com
 
 # Docker on mac
 alias rmdockerc="docker ps -a | grep -v CONTAINER | awk '{ print \$1 }' | xargs docker rm -vf"
@@ -91,3 +91,7 @@ listening() {
     lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
   fi
 }
+
+export PATH="$PATH:/Users/george/dev/lib/flutter/bin"
+export PATH="$PATH:/Users/george/dev/lib/connectiq-sdk/bin"
+

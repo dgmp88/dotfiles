@@ -20,9 +20,9 @@ alias ca='conda activate'
 
 ### Gcloud stuff
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/george/google-cloud-sdk/path.zsh.inc'
+#source '/Users/george/google-cloud-sdk/path.zsh.inc'
 # The next line enables shell command completion for gcloud.
-source '/Users/george/google-cloud-sdk/completion.zsh.inc'
+#source '/Users/george/google-cloud-sdk/completion.zsh.inc'
 alias gpu-start="gcloud compute instances start gpu-k80"
 alias gpu-stop="gcloud compute instances stop gpu-k80"
 alias gpu-ssh="gcloud compute ssh gpu-k80 -- -L localhost:8890:localhost:8888"
@@ -30,8 +30,8 @@ alias gpu-ssh="gcloud compute ssh gpu-k80 -- -L localhost:8890:localhost:8888"
 export PATH=$PATH:$HOME/.webdriver
 
 # Export my aws key to the environment
-export AWS_DEFAULT_REGION=eu-west-1
-export AWS_DEFAULT_PROFILE=georgeprichard-dev
+#export AWS_DEFAULT_REGION=eu-west-1
+#export AWS_DEFAULT_PROFILE=georgeprichard-dev
 alias awsadmin="AWS_DEFAULT_PROFILE=aws-admin aws"
 function awsv() {
   # AWS as georgeprichard-dev
@@ -42,4 +42,7 @@ function awsva() {
   # AWS as admin
   aws-vault exec --debug aws-admin -- "$@"
 }
+
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 

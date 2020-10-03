@@ -15,37 +15,41 @@ cdn = '<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>'
 starttag = "<script"
 endtag = "</script>"
 
-
-def shrink_file(filename):
-    with open(filename) as f:
-        data = f.read()
-
+def shrink_text(text):
     lastpos = 0
 
     # Find the start/end tags of the plotly js dump
     while True:
-        start = data.find(starttag, lastpos)
+        start = text.find(starttag, lastpos)
 
         if start == -1:
             break
 
-        end = data.find(endtag, start) + len(endtag)
+        end = text.find(endtag, start) + len(endtag)
 
         lastpos = end
 
-        if "plotly.js" in data[start:end]:
+        if "plotly.js" in text[start:end]:
             print("\toverwriting", filename)
             # Found the offending script. delete it and replace with the CDN
-            data = data[:start] + cdn + data[end:]
+            text = text[:start] + cdn + text[end:]
 
-            data = beautify(data)
-
-            # Rewrite the file
-            with open(filename, "w") as f:
-                f.write(data)
-            return
-
+            text = beautify(text)
+            return text
     print("\tnothing to do", filename)
+    return None
+
+def shrink_file(filename):
+    with open(filename) as f:
+        text = f.read()
+
+    text = shrink_text(text)
+
+    if text:
+        # Rewrite the file
+        with open(filename, "w") as f:
+            f.write(text)
+
 
 
 def beautify(html):
