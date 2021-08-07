@@ -9,17 +9,13 @@ if [ -e "$VISII_ENV_REPO/.aliases" ]; then
   source "$VISII_ENV_REPO/.aliases"
 fi
 
-# Screw vim, use nvim
-alias vim=nvim
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="clean"
 
-plugins=(git ssh-agent)
-zstyle :omz:plugins:ssh-agent identities id_rsa
+plugins=(git)
 
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
