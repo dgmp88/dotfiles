@@ -1,73 +1,81 @@
-// Place your settings in this file to overwrite the default settings
 {
-      // Python settings
-      "python.pythonPath": "python3",
-      "python.envFile": ".env",
-      "python.linting.pep8Enabled": true,
-      "python.linting.pep8Args": ["--max-line-length=88"],
-      "python.formatting.provider": "black",
-      "terminal.integrated.commandsToSkipShell": [
-            "editor.action.toggleTabFocusMode",
-            "workbench.action.debug.continue",
-            "workbench.action.debug.restart",
-            "workbench.action.debug.run",
-            "workbench.action.debug.start",
-            "workbench.action.debug.stop",
-            "workbench.action.openNextRecentlyUsedEditorInGroup",
-            "workbench.action.openPreviousRecentlyUsedEditorInGroup",
-            "workbench.action.quickOpen",
-            "workbench.action.showCommands",
-            "workbench.action.terminal.clear",
-            "workbench.action.terminal.copySelection",
-            "workbench.action.terminal.focus",
-            "workbench.action.terminal.focusAtIndex1",
-            "workbench.action.terminal.focusAtIndex2",
-            "workbench.action.terminal.focusAtIndex3",
-            "workbench.action.terminal.focusAtIndex4",
-            "workbench.action.terminal.focusAtIndex5",
-            "workbench.action.terminal.focusAtIndex6",
-            "workbench.action.terminal.focusAtIndex7",
-            "workbench.action.terminal.focusAtIndex8",
-            "workbench.action.terminal.focusAtIndex9",
-            "workbench.action.terminal.focusNext",
-            "workbench.action.terminal.focusPrevious",
-            "workbench.action.terminal.kill",
-            "workbench.action.terminal.new",
-            "workbench.action.terminal.paste",
-            "workbench.action.terminal.runActiveFile",
-            "workbench.action.terminal.runSelectedText",
-            "workbench.action.terminal.scrollDown",
-            "workbench.action.terminal.scrollDownPage",
-            "workbench.action.terminal.scrollToBottom",
-            "workbench.action.terminal.scrollToTop",
-            "workbench.action.terminal.scrollUp",
-            "workbench.action.terminal.scrollUpPage",
-            "workbench.action.terminal.toggleTerminal",
-            "workbench.action.focusFirstEditorGroup"
-      ],
-      "window.zoomLevel": 1,
-      "workbench.colorTheme": "Solarized Light",
-      "editor.suggestSelection": "first",
-      "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-      "python.jediEnabled": false,
-      "files.exclude": {
-            "**/.classpath": true,
-            "**/.project": true,
-            "**/.settings": true,
-            "**/.factorypath": true
-      },
-      "editor.minimap.enabled": true,
-      "terminal.integrated.rendererType": "dom",
-      // "[html]": {
-      //       "editor.defaultFormatter": "HookyQR.beautify"
-      // },
-      "html.format.indentHandlebars": true,
-      "editor.codeActionsOnSave": {
-            "source.organizeImports": true
-      },
-      "editor.formatOnSave": true,
-      "python.dataScience.sendSelectionToInteractiveWindow": true,
-      "[javascript]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode"
-      }
+  "[python]": {
+    "editor.codeActionsOnSave": { "source.organizeImports": true }
+  },
+  "[vue][javascript][typescript][json][jsonc][html][javascriptreact][css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "breadcrumbs.enabled": true,
+
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.autoClosingBrackets": "never",
+  "editor.autoSurround": "never",
+  "editor.cursorStyle": "line",
+  "editor.fontSize": 11,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.insertSpaces": true,
+  "editor.lineNumbers": "on",
+  "editor.minimap.enabled": false,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 4,
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/node_modules/**": true,
+    "**/tensorboard_env/**": true,
+    "**/*.gz": true,
+    "**/logs": true,
+    "*.db": true,
+    "*.parquet": true,
+    "*.pickle": true
+  },
+
+  "html.autoClosingTags": false,
+  "jupyter.askForKernelRestart": false,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+
+  "python.formatting.blackPath": "/usr/local/Caskroom/miniconda/base/bin/black",
+  "python.formatting.provider": "black",
+  "python.sortImports.path": "/usr/local/Caskroom/miniconda/base/bin/isort",
+
+  "redhat.telemetry.enabled": false,
+
+  "terminal.integrated.fontFamily": "Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontSize": 11,
+  "terminal.integrated.inheritEnv": false,
+
+  "vim.insertModeKeyBindings": [{ "before": ["q", "q"], "after": ["<Esc>"] }],
+  "vim.useSystemClipboard": true,
+  "vim.whichwrap": "h,l,<,>,[,]",
+
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+  "window.title": "${rootName}${separator}${activeEditorShort}",
+  "window.zoomLevel": 1,
+
+  "workbench.activityBar.visible": true,
+  "workbench.colorCustomizations": {
+    "editor.background": "#ffeac1",
+    "editor.foreground": "#1d5097",
+    "editor.selectionBackground": "#fcab16",
+    "terminal.ansiBrightWhite": "#926400"
+  },
+  "workbench.colorTheme": "Solarized Light",
+  "workbench.editor.showTabs": false,
+  "workbench.editorAssociations": { "*.ipynb": "jupyter-notebook" },
+  "workbench.startupEditor": "none"
 }
