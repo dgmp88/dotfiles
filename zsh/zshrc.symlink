@@ -1,93 +1,29 @@
 # Path to your oh-my-zsh installation.
 #zmodload zsh/zprof
 export ZSH=$HOME/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
 
-# Visii
-#export VISII_ENV_REPO=~/dev/visii/dev-environment/
-# aliases
-if [ -e "$VISII_ENV_REPO/.aliases" ]; then
-  source "$VISII_ENV_REPO/.aliases"
-fi
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="clean"
+ZSH_THEME=""
 
 plugins=(git)
 
-# User configuration
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-source $ZSH/oh-my-zsh.sh
-
-# Go setup
-export GOPATH="$HOME/dev/lib/go"
-export GOBIN="/usr/local/go/bin"
-
-# Shortcuts
-bindkey -e
-bindkey '^[[1;9C' forward-word
-bindkey '^[[1;9D' backward-word
-
-# General stuff
-
-## Directory shortcuts
-# General
-data=~/data
-dev=~/dev
-personal=~/dev/personal
-
-# Wrok
-visii=~/dev/visii
-opteo=~/dev/opteo
-rps=~/dev/visii/random-public-site/randomsite
-widget=~/dev/visii/widget-test-application
-explore=~/dev/visii/explore
-research=~/dev/visii/research
-datasets=~/dev/visii/research/datasets
-cana=~/dev/visii/data-analysis/clients
-meeseeks=~/dev/visii/meeseeks
-
-# Projects
-apps=~/dev/apps
-lookdat=~/dev/lookdat.com
-
-# Docker on mac
-alias rmdockerc="docker ps -a | grep -v CONTAINER | awk '{ print \$1 }' | xargs docker rm -vf"
-alias rmdockeri="docker images | grep 'none' | grep -v IMAGE | awk '{ print $3 }' | xargs docker rmi"
 
 # Miscellanious Dev
 alias json=~/.dotfiles/script/json_parser.py
 alias jpy='jupyter-lab'
 alias gin=~/.dotfiles/script/gin.sh
 alias miniplotly=~/.dotfiles/script/miniplotly
-alias ls='ls -lah'
+alias g=git
+alias p=pnpm
 
-# Imports
-export PYTHONPATH=$PYTHONPATH:$HOME/dev/pythonpath
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export NVM_DIR="$HOME/.nvm"
+ [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+ [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# Add gnubin to path so we have linux style cp etc
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$HOME/.dotfiles/overrides:$PATH"
-
-__git_files () {
-	_wanted files expl 'local files' _files  }
-
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
-source "$HOME/.dotfiles/zsh/private"
-source "$HOME/.dotfiles/zsh/local"
-
-listening() {
-  if [ $# -eq 0 ]; then
-    lsof -iTCP -sTCP:LISTEN -n -P
-  elif [ $# -eq 1 ]; then
-    lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
-  fi
-}
-
-export PATH="$PATH:/Users/george/dev/lib/flutter/bin"
-export PATH="$PATH:/Users/george/dev/lib/connectiq-sdk/bin"
-
+# pnpm
+export PNPM_HOME="/Users/george/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

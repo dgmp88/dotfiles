@@ -2,20 +2,6 @@ syntax on
 filetype off
 set nocompatible              " be iMproved, required
 
-" set the runtime path to include Vundle and initialize
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'Valloric/MatchTagAlways'
-Plug 'ervandew/supertab'
-Plug 'tpope/vim-markdown'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'othree/html5.vim'
-Plug 'tpope/vim-sleuth'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'w0rp/ale'
-
-call plug#end()
 
 """""""""""""""""""""
 """ Vim config stuff
@@ -55,35 +41,4 @@ set background=light
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
-
-"""""""""""""""""""""
-""" Plugin config
-"""""""""""""""""""""
-
-
-" Nerdtree
-map <C-n> :NERDTreeToggle<CR>
-
-" CtrlP settings:
-" ignore these files
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:ctrlp_dont_split = 'NERD'
-
-" Cache the results of ctrlp
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-
-let b:ale_linters = {
-\      'python': ['flake8'],
-\      'javascript': ['eslint']
-\}
-
-let g:ale_fixers = {
-\      'python': ['black', 'isort', 'remove_trailing_lines', 'trim_whitespace'],
-\      'javascript': ['prettier']
-\      }
-
-let g:ale_python_flake8_options= '--max-line-length=88'
-
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
 
