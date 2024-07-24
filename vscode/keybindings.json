@@ -1,0 +1,47 @@
+[
+  {
+    "key": "cmd+shift+down",
+    "command": "workbench.action.terminal.resizePaneDown",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+shift+left",
+    "command": "workbench.action.terminal.resizePaneLeft",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+shift+right",
+    "command": "workbench.action.terminal.resizePaneRight",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+shift+up",
+    "command": "workbench.action.terminal.resizePaneUp",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+shift+down",
+    "command": "workbench.action.terminal.resizePaneDown",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+shift+left",
+    "command": "workbench.action.terminal.resizePaneLeft",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+shift+right",
+    "command": "workbench.action.terminal.resizePaneRight",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+shift+up",
+    "command": "workbench.action.terminal.resizePaneUp",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.terminal.new",
+    "when": "editorTextFocus"
+  }
+]

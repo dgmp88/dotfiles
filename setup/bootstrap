@@ -114,7 +114,23 @@ install_dotfiles () {
   done
 }
 
+install_vscode() {
+  info 'installing vscode settings'
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  src="$DOTFILES_ROOT/vscode/settings.json"
+  dst="$HOME/Library/Application Support/Code/User/settings.json"
+  link_file "$src" "$dst"
+
+  src="$DOTFILES_ROOT/vscode/keybindings.json"
+  dst="$HOME/Library/Application Support/Code/User/keybindings.json"
+  link_file "$src" "$dst"
+
+}
+
 install_dotfiles
+install_vscode
 
 echo ''
 echo '  All installed!'
