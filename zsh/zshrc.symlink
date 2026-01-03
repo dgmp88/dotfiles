@@ -1,9 +1,4 @@
 # Path to your oh-my-zsh installation.
-#zmodload zsh/zprof
-export ZSH=$HOME/.oh-my-zsh
-export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
-
-
 ZSH_THEME="robbyrussell"
 
 plugins=(git)
@@ -11,21 +6,5 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Miscellanious Dev
-alias json=~/.dotfiles/script/json_parser.py
-alias jpy='jupyter-lab'
-alias gin=~/.dotfiles/script/gin.sh
-alias miniplotly=~/.dotfiles/script/miniplotly
 alias g=git
-alias p=pnpm
 
-export NVM_DIR="$HOME/.nvm"
- [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
- [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-# pnpm
-export PNPM_HOME="/Users/george/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end

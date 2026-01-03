@@ -1,9 +1,5 @@
 {
   "[python]": {
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    },
-    "editor.formatOnType": true,
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "[vue][javascript][typescript][json][jsonc][html][javascriptreact][css][typescriptreact]": {
@@ -11,7 +7,6 @@
   },
 
   "breadcrumbs.enabled": true,
-
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.autoClosingBrackets": "never",

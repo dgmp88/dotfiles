@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# Run all dotfiles installers.
+
+set -e
+
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd -P)
+
+echo ''
+echo '  Running installers...'
+echo ''
+
+# Find the installers and run them iteratively
+find "$DOTFILES_ROOT" -maxdepth 2 -name install.sh -not -path '*.git*' | while read installer ; do
+  echo "  Running ${installer#$DOTFILES_ROOT/}"
+  sh -c "${installer}"
+done
+
+echo ''
+echo '  All installers complete!'
