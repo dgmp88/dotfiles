@@ -1,20 +1,10 @@
-# George does dotfiles
-
-Full details from here: https://github.com/holman/dotfiles
-
 ## install
 
-Run this:
+After cloning:
 
-```sh
-git clone https://github.com/dgmp88/dotfiles.git 
-cd dotfiles
-script/install 
-script/bootstrap
-```
-
-This will symlink the appropriate files in `.dotfiles` to your home directory.
-Everything is configured and tweaked within `~/.dotfiles`.
+1. `script/install` <- Run installers, currently just zsh
+2. `script/bootstrap` <- symlink config files, e.g. zshrc
+3. `sudo sh macos/set-defaults` <- Key repeat settings, finder settings, etc
 
 ## thanks
 

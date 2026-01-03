@@ -107,9 +107,20 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_ROOT" -name '*.symlink' -not -path '*.git*')
   do
-    dst="$HOME/.$(basename "${src%.*}")"
+    # Get parent directory name (e.g., ".claude" from "claude/.claude/settings.json.symlink")
+    parent=$(basename "$(dirname "$src")")
+    filename=$(basename "${src%.*}")
+
+    # If parent starts with dot, preserve directory structure
+    if [[ "$parent" == .* ]]; then
+      mkdir -p "$HOME/$parent"
+      dst="$HOME/$parent/$filename"
+    else
+      dst="$HOME/.$filename"
+    fi
+
     link_file "$src" "$dst"
   done
 }

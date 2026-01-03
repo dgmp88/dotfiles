@@ -1,6 +1,7 @@
 git/gitconfig.local.symlink
 
 zsh/private
+reference/
 
 *.pyc
 __pycache__
