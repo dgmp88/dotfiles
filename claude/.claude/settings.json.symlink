@@ -3,6 +3,6 @@
     "example-skills@anthropic-agent-skills": true
   },
   "permissions": {
-    "allow": ["WebFetch", "Bash(cat:*)"]
+    "allow": ["WebFetch", "WebSearch", "Bash(cat:*)"]
   }
 }
