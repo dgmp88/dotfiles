@@ -1,8 +1,13 @@
 {
+  "permissions": {
+    "allow": [
+      "WebFetch",
+      "WebSearch",
+      "Bash(cat:*)"
+    ]
+  },
   "enabledPlugins": {
     "example-skills@anthropic-agent-skills": true
   },
-  "permissions": {
-    "allow": ["WebFetch", "WebSearch", "Bash(cat:*)"]
-  }
+  "model": "opus"
 }
